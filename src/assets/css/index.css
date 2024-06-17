@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+tr:nth-child(even) {
+    background: #d6d8db;
+}
+
+tbody tr:hover {
+    opacity: .6;
+    transition: opacity .2s;
+}

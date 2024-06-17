@@ -1,0 +1,95 @@
+.groups-input {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.groups-input .member-input,
+.input-alone {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.groups-input .member-input input,
+.input-alone input {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid hsl(0, 0%, 80%);
+    outline: none;
+    text-indent: 10px;
+    font-size: 14px;
+    transition: all .3s ease-in-out;
+}
+
+
+.groups-input .member-input input:focus,
+.input-alone input:focus {
+    border-bottom: 1px solid #222831;
+    transition: all .3s ease-in-out;
+}
+
+
+
+.groups-input .member-input input:focus+label,
+.groups-input .member-input input:not(:placeholder-shown)+label,
+.input-alone input:focus+label,
+.input-alone input:not(:placeholder-shown)+label {
+    top: 0;
+    font-size: 10px;
+    transition: all .3s ease-in-out;
+    color: #222831;
+    font-weight: 600;
+}
+
+.groups-input .member-input label,
+.input-alone label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    font-size: 14px;
+    color: gray;
+    transition: all .3s ease-in-out;
+}
+
+.custum-file-upload {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #cacaca;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px rgba(0, 0, 0, 0.1);
+}
+
+.custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+    height: 30px;
+    fill: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload .text {
+    text-align: center;
+    font-size: 10px;
+}
+
+.custum-file-upload .text span {
+    font-weight: 600;
+    color: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload input {
+    display: none;
+}
