@@ -4,29 +4,7 @@ import Navbar from "../components/navbar";
 import { AiOutlineMore } from "react-icons/ai";
 import { CiLogout } from "react-icons/ci";
 import { ToastContainer } from "react-toastify";
-import { FormModal } from "../components/modal";
-import { ModalProvider, useModal } from "../contexts/modalContext";
-import { FORM_ADD, FORM_EDIT } from "../common/constants/constants";
-
-const ModalForm = ({ children }) => {
-  const modal = useModal();
-
-  if (modal.formType === FORM_ADD) {
-    return (
-      <div className="absolute top-0 left-0">
-        {modal.isOpen && <FormModal>{children}</FormModal>}
-      </div>
-    );
-  }
-
-  if (modal.formType === FORM_EDIT) {
-    return (
-      <div className="absolute top-0 left-0">
-        {modal.isOpen && <FormModal>{children}</FormModal>}
-      </div>
-    );
-  }
-};
+import { ModalProvider } from "../contexts/modalContext";
 
 export default function Layout() {
   return (
@@ -74,9 +52,6 @@ export default function Layout() {
           <Outlet />
         </div>
       </div>
-
-      {/* Modal  */}
-      <ModalForm />
 
       {/* toast  */}
       <ToastContainer />

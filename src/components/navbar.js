@@ -21,7 +21,7 @@ export default function Navbar() {
         </NavLink>
       </li>
       <li className="h-14 w-full flex justify-center lg:justify-start lg:ps-2 items-center ">
-        <NavLink to="/users" className="flex items-end">
+        <NavLink to="/categories" className="flex items-end">
           <MdClass className="text-[#EEEEEE]" fontSize={30} />
           <p className="text-[#EEEEEE] ps-2 hidden lg:block text-sm">
             Categories

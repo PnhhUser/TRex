@@ -1,5 +1,4 @@
 import Select from "react-select";
-import { AiOutlineClose } from "react-icons/ai";
 import notImg from "../assets/imgs/logo/image-outline-icon.png";
 import { urlImage } from "../common/utils/utils";
 import { useRef } from "react";
@@ -10,7 +9,7 @@ const options = [
   { value: "admin", label: "admin" },
 ];
 
-export default function FormUser() {
+export default function FormUser({ userId }) {
   const imgRef = useRef();
 
   const handleOnSubmit = (e) => {
@@ -26,15 +25,17 @@ export default function FormUser() {
     imgRef.current.src = urlFile;
   };
 
+  const editUser = (id) => {
+    console.log(id);
+  };
+
+  const removeUser = (id) => {
+    console.log(id);
+  };
+
   return (
     <div className="w-full h-full">
-      <div className="w-full h-[6%] rounded-t-sm flex justify-between">
-        <div className="h-full flex items-center"></div>
-        <div className="w-8 h-full rounded-tr-sm cursor-pointer flex justify-center items-center">
-          <AiOutlineClose />
-        </div>
-      </div>
-      <div className="w-full h-[94%]">
+      <div className="w-full h-[94%] pt-4">
         <form
           method="post"
           className="px-4 h-full relative"
@@ -62,6 +63,7 @@ export default function FormUser() {
               <label htmlFor="phonenumber"> Phone number </label>
             </div>
           </div>
+
           <div className="input-alone mb-4">
             <input
               type="email"
@@ -72,6 +74,7 @@ export default function FormUser() {
             />
             <label htmlFor="email"> Email </label>
           </div>
+
           <div className="input-alone mb-4">
             <input
               type="password"
@@ -82,6 +85,7 @@ export default function FormUser() {
             />
             <label htmlFor="password"> Password </label>
           </div>
+
           <div className="py-[15px] text-sm">
             <Select
               options={options}
@@ -96,6 +100,7 @@ export default function FormUser() {
               }}
             />
           </div>
+
           <div className="py-[15px] flex gap-4">
             <label className="custum-file-upload" htmlFor="file">
               <div className="icon">
@@ -138,14 +143,35 @@ export default function FormUser() {
               />
             </div>
           </div>
-          <div className="py-[15px] absolute w-full bottom-8 left-0 px-4">
-            <button
-              className="w-[100%] h-10 text-sm bg-[#00ADB5] text-[#EEEEEE] rounded-sm"
-              type="submit"
-            >
-              Add
-            </button>
-          </div>
+
+          {userId === undefined ? (
+            <div className="grid grid-cols-2 mt-14">
+              <div className="col-span-2 bg-[#00ADB5] rounded-sm">
+                <button className="text-center w-full text-sm text-[#EEEEEE] h-10">
+                  Add
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-4 mt-14">
+              <div className="col-span-1 bg-[#00ADB5] rounded-sm">
+                <button
+                  className="text-center w-full text-sm text-[#EEEEEE] h-10"
+                  onClick={() => editUser(userId)}
+                >
+                  Edit
+                </button>
+              </div>
+              <div className="col-span-1 bg-red-500 rounded-sm">
+                <button
+                  className="text-center w-full text-sm text-[#EEEEEE] h-10"
+                  onClick={() => removeUser(userId)}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          )}
         </form>
       </div>
     </div>

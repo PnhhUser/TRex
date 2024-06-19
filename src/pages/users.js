@@ -25,10 +25,11 @@ export default function Users() {
       type: OPEN_MODAL,
       open: true,
       formType: FORM_EDIT,
+      id: id,
     });
   };
 
-  const tableUsersData = initUsers.map((user) => {
+  const rowData = initUsers.map((user) => {
     return (
       <tr
         className="border-b-[1px] border-[#e1e3e7] cursor-pointer"
@@ -95,16 +96,30 @@ export default function Users() {
           <table className="text-sm w-full rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="uppercase bg-[#393E46]">
               <tr>
-                <th className="text-[#EEEEEE] py-3 px-2">Name</th>
-                <th className="text-[#EEEEEE] py-3 px-2">image</th>
-                <th className="text-[#EEEEEE] py-3 px-2">email</th>
-                <th className="text-[#EEEEEE] py-3 px-2">Day create</th>
-                <th className="text-[#EEEEEE] py-3 px-2">Day update</th>
-                <th className="text-[#EEEEEE] py-3 px-2">Role</th>
-                <th className="text-[#EEEEEE] py-3 px-2">Status</th>
+                <th className="text-[#EEEEEE] py-3 px-2">
+                  <p className="w-28">Name</p>
+                </th>
+                <th className="text-[#EEEEEE] py-3 px-2">
+                  <p className="w-28">Image</p>
+                </th>
+                <th className="text-[#EEEEEE] py-3 px-2">
+                  <p className="w-28">Email</p>
+                </th>
+                <th className="text-[#EEEEEE] py-3 px-2">
+                  <p className="w-28">Day create</p>
+                </th>
+                <th className="text-[#EEEEEE] py-3 px-2">
+                  <p className="w-28">Day update</p>
+                </th>
+                <th className="text-[#EEEEEE] py-3 px-2">
+                  <p className="w-28"> Role</p>
+                </th>
+                <th className="text-[#EEEEEE] py-3 px-2">
+                  <p className="w-28">Status</p>
+                </th>
               </tr>
             </thead>
-            <tbody className="bg-white text-center">{tableUsersData}</tbody>
+            <tbody className="bg-white text-center">{rowData}</tbody>
           </table>
         </div>
       </div>
